@@ -1,0 +1,21 @@
+class Solution {
+    public int[] findDuplicates(int[] nums) {
+        List<Integer> result = new ArrayList<>();
+
+        for (int i =0; i< nums.length; i++ ){
+            int n = Math.abs(nums[i]);
+            if(nums[n - 1] < 0) {
+                result.add(n);
+            } else {
+                nums[ n - 1] = nums[ n - 1] * -1;
+            }
+
+        }
+        int[] output = new int[result.size()];
+        for(int i =0; i< result.size(); i++) {
+            output[i] = result.get(i);
+        }
+
+        return output;
+    }
+}
